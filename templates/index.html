@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% block head %}
+{% block title %} Blog App {% endblock title %}
+
+{% endblock head %}
+
+{% block body %}
+
+<div class="wrapper">
+
+  <h5 class="head"> EPYTHON LAB BLOG </h5>
+
+  <div class="container-fluid">
+
+    <div class="row">
+      <!--left side -->
+      <div class="col-md-3" >
+        <div class="card" style="width:18rem;">
+
+          <div class="card-header">
+            Latest Article
+          </div>
+          {% for i in range(3) %}
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item"> Post 1</li>
+
+          </ul>
+          {% endfor %}
+
+        </div>
+
+      </div><!-- end of the lest side -->
+
+      <div class="col-md-7">
+        {% for i in range(3) %}
+        <div class="card">
+          <div class="card-header">
+            Post by Admin
+
+          </div>
+
+          <div class="card-body">
+            <h5 class="card-title"> Post 1</h5>
+            <p class="card-text"> This is my first post </p>
+            <a href="#" class="btn btn-primary"> Read more </a>
+
+          </div>
+
+        </div>
+        {% endfor %}
+
+      </div> <!-- end of content columns -->
+
+    </div> <!-- end of row -->
+
+  </div> <!-- end of container-fluid -->
+
+</div>
+{% endblock body %}
