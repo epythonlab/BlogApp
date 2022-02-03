@@ -12,7 +12,12 @@
 
   <div class="container-fluid">
 
+
     <div class="row">
+      <div class="">
+        <a href="/post/" class="btn btn-success float-end"> New Post</a>
+
+      </div>
       <!--left side -->
       <div class="col-md-3" >
         <div class="card" style="width:18rem;">
@@ -32,16 +37,17 @@
       </div><!-- end of the lest side -->
 
       <div class="col-md-7">
-        {% for i in range(3) %}
+
+        {% for post in posts %}
         <div class="card">
           <div class="card-header">
-            Post by Admin
+            Posted on {{post.post_date}}
 
           </div>
 
           <div class="card-body">
-            <h5 class="card-title"> Post 1</h5>
-            <p class="card-text"> This is my first post </p>
+            <h5 class="card-title"> {{post.title}}</h5>
+            <p class="card-text"> {{post.desc}} </p>
             <a href="#" class="btn btn-primary"> Read more </a>
 
           </div>
