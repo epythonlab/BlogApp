@@ -15,7 +15,7 @@
 
     <div class="row">
       <div class="">
-        <a href="/post/" class="btn btn-success float-end"> New Post</a>
+        <a href="/" class="btn btn-primary float-end"> Home</a>
 
       </div>
       <!--left side -->
@@ -37,39 +37,50 @@
       </div><!-- end of the lest side -->
 
       <div class="col-md-7">
-
+        <!-- add flash to display success message while new adding new record -->
         {% with messages = get_flashed_messages() %}
           {% if messages %}
             {% for message in messages %}
-            <div class="alert alert-success alert-dismissible" role="alert">
-              {{message}}
-            </div>
+              <div class="alert alert-success alert-dismissible" role='alert'>
+                {{message}}
+
+              </div>
             {% endfor %}
           {% endif %}
         {% endwith %}
 
-
-        {% for post in posts %}
         <div class="card">
           <div class="card-header">
-            Posted on {{post.post_date}}
+            Update post
 
           </div>
 
           <div class="card-body">
-            <h5 class="card-title"> {{post.title}}</h5>
-            <p class="card-text"> {{post.desc}} </p>
-            <a href="#" class="btn btn-primary"> Read more </a>
 
-          </div>
-          <div class="modal-footer">
-            <a href="/delete/{{post.id}}" class="btn btn-danger" onlick="return confirm('Are you sure to delete this post?')"> Delete this post</a>
-            <a href="/edit/{{post.id}}"  class="btn btn-primary"> Edit</a>
+          <form class="" action="/update/" method="post">
+            <div class="form-group">
+              <label for="">Title</label>
+              <input type="hidden" name="id" value="{{edit_post.id}}">
+              <input type="text" class="form-control" value="{{edit_post.title}}" name="title" value="" required>
+
+            </div>
+
+            <div class="form-group">
+              <label for="">Description</label>
+              <textarea type="text" name="desc" class="form-control" rows="8" cols="80" required>{{edit_post.desc}}</textarea>
+
+            </div>
+
+            <div class="modal-footer">
+              <button type="submit" name="" class="btn btn-primary"> Update</button>
+
+            </div>
+
+          </form>
 
           </div>
 
         </div>
-        {% endfor %}
 
       </div> <!-- end of content columns -->
 
